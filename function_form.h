@@ -4,7 +4,8 @@ using namespace std;
 string form_name(string s);
 bool check_number(string s);
 bool check_day(int day,int month, int year);
-bool check_day2(string s)
+string formddmmyy(int day, int month ,int year);
+
 
 string form_name(string s){
     string tmp;
@@ -27,14 +28,7 @@ bool check_number(string s){
     }
     return true;
 }
-bool check_day2(string s){
-    int day,month,year;
-    stringstream ss(s);
-    string tmp; 
-    while(getline(ss,tmp,'/')){
-        cout<<tmp<<endl;
-    }
-}
+
 bool check_day(int day,int month, int year){
     int date[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
     if(year %400 ==0){
@@ -50,4 +44,18 @@ bool check_day(int day,int month, int year){
         return false;
     }
     return true;
+}
+string formddmmyy(int day, int month ,int year){
+    string days ,months,years;
+    years=to_string(year);
+    if(day<10){
+        days="0"+to_string(day);
+    }
+    if(month <10){
+        months="0"+to_string(month);
+    }
+    return days+"/"+months+"/"+years;
+}
+bool check_Id(){
+    
 }
